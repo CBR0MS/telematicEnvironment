@@ -1,0 +1,62 @@
+   
+body {
+    font-family: unifont;
+    font-size: 50px;
+    background-color: #333333;
+
+}  
+
+a {
+    color: white;
+}
+
+.gibberish-text {
+  margin: 40px;
+    color: white;
+    text-align: center;
+}
+
+.input {
+    margin-top: 40vh;
+    text-align: center;
+}
+
+label {
+   display: block;
+   width: 100%;
+   margin: 20px auto;
+   text-align: center;
+   font-size: 25px;
+   color: white;
+}
+
+input:focus{
+    outline: none;
+}
+
+input[type=text] {
+  text-align: center;
+    display: block; 
+    margin: 0 auto;
+    font-family: unifont;
+    font-size:26px;
+    height: 35px;
+    width: 400px;
+    background-color: #2d2d2d;
+    border: none;
+}
+
+input[type=submit] {
+    cursor: pointer;
+    background:none;
+     border:none;
+    font-family: unifont;
+   display: block;
+   margin: 20px auto;
+   text-align: center;
+   font-size: 40px;
+}
+
+input {
+    color: white;
+}

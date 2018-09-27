@@ -1,31 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Void</title>
+{% extends "base.html" %}
 
+{% block title %}The Void{% endblock%}
+
+{% block scripts %}
 {% load static %}
-<script src="{% static "lunicode.js" %}"></script>
-
-<style type="text/css">
-    @font-face {
-        font-family: unifont;
-        src: url('{% static "unifont.ttf" %}') format('truetype');
-    }
-    body {
-        font-family: unifont;
-        font-style: 50px;
-
-    }  
-</style>
-</head>
 
 
-<body>
+{% endblock %}
 
+{% block content %}
 <script type="text/javascript">
-    
+// new lunicode object
 var luni = new Lunicode();
-
+// creepify options 
 luni.tools.creepify.options.top = true;     
 luni.tools.creepify.options.middle = true;  
 luni.tools.creepify.options.bottom = true;  
@@ -34,27 +21,25 @@ luni.tools.creepify.options.randomization = 100;
 
 var encoded = [];
 
+// add creepified text to encoded 
 {% for w in whisps %}
     encoded.push({'creep': luni.tools.creepify.encode("{{w.display_text}}"), 'id': "{{ w.id }}"});
 {% endfor %}
 
-
+// onload, add encoded text to elements 
 window.onload = () => {
     for (let i = 0; i < encoded.length; i++) {
         document.getElementById(encoded[i].id).innerHTML = encoded[i].creep;
     }
 }
-
-
-
 </script>
 
 {% for w in whisps %}
     <a href="interpretation?whisper={{ w.id }}">
-        <div class="gibberish-text" id="{{ w.id }}" style="margin: 40px;">
+        <div class="gibberish-text" id="{{ w.id }}">
         
         </div>
     </a>
 {% endfor %}
-</body>
-</html>
+
+{% endblock %}
